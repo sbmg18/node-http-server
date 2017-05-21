@@ -1,5 +1,7 @@
 var http = require('http');
 
+const port = process.env.PORT || 3000;
+
 var proxy = http.createServer(function(request, response) {
     console.log(request.headers['user-agent']);
     response.writeHead(200);
@@ -7,6 +9,6 @@ var proxy = http.createServer(function(request, response) {
     response.end("Ending response...");
 });
 
-proxy.listen(3000, () => {
-    console.log("Listening on port 3000.");
+proxy.listen(port, () => {
+    console.log(`Listening on port ${port}.`);
 });
